@@ -1,4 +1,8 @@
 using FuncionarioProj.Data.Context;
+using FuncionarioProj.Data.Repository;
+using FuncionarioProj.Data.Repository.Interface;
+using FuncionarioProj.Servico.Servico;
+using FuncionarioProj.Servico.Servico.Interface;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<DbContexto>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IFuncionarioRepository, FuncionarioRepository>();
+builder.Services.AddScoped<IFuncionarioServico, FuncionarioServico>();
 
 var app = builder.Build();
 
