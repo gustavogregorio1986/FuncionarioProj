@@ -1,3 +1,43 @@
-﻿@{
+﻿@model FuncionarioProj.Models.FuncionarioView
+
+@{
     ViewData["Title"] = "Cadastrar Funcionario";
 }
+
+<h2>Cadastrar Funcionário</h2>
+
+<form asp-action="Cadastar" method="post" class="mt-4">
+    <div class="form-group">
+        <label asp-for="NomeFuncionario" class="control-label"></label>
+        <input asp-for="NomeFuncionario" class="form-control" />
+        <span asp-validation-for="NomeFuncionario" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NomeEmpresa" class="control-label"></label>
+        <input asp-for="NomeEmpresa" class="form-control" />
+        <span asp-validation-for="NomeEmpresa" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Setor" class="control-label"></label>
+        <input asp-for="Setor" class="form-control" />
+        <span asp-validation-for="Setor" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DataInicio" class="control-label"></label>
+        <input asp-for="DataInicio" class="form-control" type="date" />
+        <span asp-validation-for="DataInicio" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="DataTermino" class="control-label"></label>
+        <input asp-for="DataTermino" class="form-control" type="date" />
+        <span asp-validation-for="DataTermino" class="text-danger"></span>
+    </div>
+    <div class="d-flex align-items-center">
+        <label for="statusSelect" class="me-2">Status</label>
+        <select class="form-select" id="statusSelect" style="width: auto;">
+            <option value="true">Ativo</option>
+            <option value="false">Inativo</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success mt-3">Salvar</button>
+</form>
